@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Password Chart</title>
+<style type="text/css"><!--
+body {
+  font-family:Arial;
+  font-size:10pt;
+}
+td {
+  font-size:10pt;
+}
+li {
+  font-size:10pt;
+  margin-top: 10px;
+}
+h1 {
+  font-size:25pt;
+}
+h2 {
+  font-size:15pt;
+}
+--></style>
+</head>
+<body bgcolor="#FFFFFF">
+  <table width="100%" height="100%">
+    <tr>
+      <td valign=center align=center>
+        <table cellpadding=0 cellspacing=0 border=0>
+          <tr>
+            <td width=20>&nbsp;</td>
+            <td>
+              <h1>How It Works</h1>
+              <hr>
+              <p>
+                There is no magic snake oil here, its a simple substitution cipher.  Here is how the algorithm works:
+              </p>
+              <ol>
+                <li> An MD5 hash of the chart selection phrase is performed and the first 4 bytes of the hash is used<br>
+                     as a random number seed to a Mersenne Twister pseudo-random number generator.
+                <li> The password chart is then filled using sequences of 1 to 3 random upper and lower case letters and<br>
+                     optionally numbers and punctuation by grabbing successive numbers generated from the Twister.<br>
+                     The reason for the random sequence length is to make reversing the substitution cipher a bit harder.
+                <li> The alphanumeric characters in the password is then converted using the chart.
+              </ol>
+              <p>
+                I offer no proof that the method of generating the chart is "secure".  It is really just meant as a<br> 
+                simple and fun substitution cipher that will help people maintain a little more secure set of passwords.<br>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
