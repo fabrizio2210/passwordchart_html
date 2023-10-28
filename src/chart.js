@@ -9,6 +9,13 @@ var getSeedTimeout = null;
 var getPwdTimeout = null;
 var garbageTable = new Array();
 
+function copyTray() {
+  var span_Text = document.getElementById("spanpassword").innerText;
+  navigator.clipboard.writeText(span_Text)
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + span_Text;
+}
+
 function getLetter(mt) 
 {
   if (mt.randomInRange(0,1))
@@ -109,7 +116,7 @@ function translatePwd()
         
         results += "</td>";
       }
-      results += "</tr></table></p><p>Use <span style='font-family:Courier; color:#FF0000; font-size:15pt'>" + password + "</span> as your password.</p>";
+      results += "</tr></table></p><div class='tooltip'><button onclick='copyTray()' style='font-size:24px'><i class='fa fa-copy'></i></button><span class='tooltiptext' id='myTooltip'>Copy to clipboard</span></div><p>Use <span id='spanpassword' style='font-family:Courier; color:#FF0000; font-size:15pt'>" + password + "</span> as your password.</p>";
 
       chartedResults.innerHTML = results;
     }
